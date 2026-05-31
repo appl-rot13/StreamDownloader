@@ -37,6 +37,9 @@ public partial class MainViewModel : ObservableObject
     [NotifyCanExecuteChangedFor(nameof(AddCommand))]
     public partial string Url { get; set; } = string.Empty;
 
+    [ObservableProperty]
+    public partial bool IsKeepSources { get; set; } = false;
+
     public ObservableCollection<string> Urls { get; } = [];
     public ObservableCollection<DownloaderOption> Options { get; }
 
@@ -66,15 +69,38 @@ public partial class MainViewModel : ObservableObject
             return;
         }
 
-        var downloaderCommand = this.appSettings.DownloaderSettings.CreateCommand(this.Urls);
-        var command = downloaderCommand + " & echo ExitCode: %ERRORLEVEL%" + " & pause";
+        this.StartDownload([this.Urls]);
+    }
 
-        Process.Start("cmd.exe", $"/c {command.DoubleQuoted()}");
-        this.Urls.Clear();
+    [RelayCommand(CanExecute = nameof(CanDownload))]
+    private void ParallelDownload()
+    {
+        if (!this.CanDownload())
+        {
+            return;
+        }
+
+        this.StartDownload(this.Urls.Select(url => (IEnumerable<string>)[url]));
     }
 
     private bool CanDownload()
     {
         return this.Urls.Any();
+    }
+
+    private void StartDownload(IEnumerable<IEnumerable<string>> urlGroups)
+    {
+        foreach (var urlGroup in urlGroups)
+        {
+            var downloaderCommand = this.appSettings.DownloaderSettings.CreateCommand(urlGroup);
+            var command = downloaderCommand + " & echo ExitCode: %ERRORLEVEL%" + " & pause";
+
+            Process.Start("cmd.exe", $"/c {command.DoubleQuoted()}");
+        }
+
+        if (!this.IsKeepSources)
+        {
+            this.Urls.Clear();
+        }
     }
 }

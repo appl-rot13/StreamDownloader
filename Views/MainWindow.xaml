@@ -52,6 +52,19 @@
             </ListView>
         </GroupBox>
 
-        <Button Grid.Row="2" Content="Download" Command="{Binding DownloadCommand}" />
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <CheckBox Content="Keep sources" Margin="10,0" VerticalAlignment="Center" IsChecked="{Binding IsKeepSources}" />
+
+            <Button Content="Download" Padding="10,0" Command="{Binding DownloadCommand}" x:Name="DownloadButton" />
+            <ToggleButton BorderThickness="0,1,1,1" IsEnabled="{Binding IsEnabled, ElementName=DownloadButton}" x:Name="DownloadOptionButton">
+                <ToggleButton.ContextMenu>
+                    <ContextMenu Placement="Bottom">
+                        <MenuItem Header="Parallel Download" Command="{Binding ParallelDownloadCommand}" />
+                    </ContextMenu>
+                </ToggleButton.ContextMenu>
+
+                <Path Data="M 0,0 L 4,4 L 8,0 Z" Fill="Black" Margin="1,0" />
+            </ToggleButton>
+        </StackPanel>
     </Grid>
 </Window>
