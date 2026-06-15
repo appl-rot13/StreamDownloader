@@ -7,6 +7,8 @@ public class AppSettings
 
     public void Validate()
     {
+#if !DEBUG
         this.DownloaderSettings.Validate();
+#endif
     }
 }
