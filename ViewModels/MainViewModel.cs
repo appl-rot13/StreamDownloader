@@ -38,7 +38,7 @@ public partial class MainViewModel : ObservableObject
     public partial string Url { get; set; } = string.Empty;
 
     [ObservableProperty]
-    public partial bool IsKeepSources { get; set; } = false;
+    public partial bool IsKeepSources { get; set; } = true;
 
     public ObservableCollection<string> Urls { get; } = [];
     public ObservableCollection<DownloaderOption> Options { get; }
@@ -59,6 +59,12 @@ public partial class MainViewModel : ObservableObject
     {
         var url = this.Url.Trim();
         return !string.IsNullOrWhiteSpace(url) && !this.Urls.Contains(url);
+    }
+
+    [RelayCommand]
+    private void Clear()
+    {
+        this.Urls.Clear();
     }
 
     [RelayCommand(CanExecute = nameof(CanDownload))]
@@ -100,7 +106,7 @@ public partial class MainViewModel : ObservableObject
 
         if (!this.IsKeepSources)
         {
-            this.Urls.Clear();
+            this.Clear();
         }
     }
 }
