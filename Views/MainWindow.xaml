@@ -3,7 +3,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vm="clr-namespace:StreamDownloader.ViewModels"
-    Title="Stream Downloader" Height="450" Width="800">
+    Title="Stream Downloader" Height="450" Width="800"
+    FocusManager.FocusedElement="{Binding ElementName=UrlTextBox}">
 
     <Window.DataContext>
         <vm:MainViewModel />
@@ -28,7 +29,11 @@
                     <TextBlock DockPanel.Dock="Left" Text="Stream URL: " VerticalAlignment="Center" />
                     <Button DockPanel.Dock="Right" Content="Add" Padding="10,0" Command="{Binding AddCommand}" />
 
-                    <TextBox Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}" x:Name="UrlTextBox">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Enter" Command="{Binding AddCommand}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
                 </DockPanel>
 
                 <ListView Grid.Row="1" ItemsSource="{Binding Urls}" />
