@@ -37,10 +37,13 @@ jobs:
           $releaseDir = "./release"
           New-Item -ItemType Directory -Path $releaseDir
 
-          $publishDir = "./publish"
-          if (Test-Path $publishDir) {
-            Write-Host "Copy: $publishDir -> $releaseDir"
-            Copy-Item -Path "$publishDir/*" -Destination $releaseDir -Force
+          Get-ChildItem -Directory | ForEach-Object {
+            $publishDir = "./$($_.Name)/publish"
+
+            if (Test-Path $publishDir) {
+              Write-Host "Copy: $publishDir -> $releaseDir"
+              Copy-Item -Path "$publishDir/*" -Destination $releaseDir -Force
+            }
           }
 
           Copy-Item -Path LICENSE -Destination "$releaseDir/LICENSE.txt"

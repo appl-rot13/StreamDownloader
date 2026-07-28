@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="StreamDownloader.csproj" />
+  <Project Path="StreamDownloader/StreamDownloader.csproj" />
+  <Project Path="StreamDownloaderTest/StreamDownloaderTest.csproj" />
 </Solution>
