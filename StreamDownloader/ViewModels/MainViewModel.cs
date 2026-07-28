@@ -4,28 +4,35 @@ namespace StreamDownloader.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-using StreamDownloader.Configuration;
 using StreamDownloader.Configuration.Models;
-using StreamDownloader.Extensions;
+using StreamDownloader.Downloader;
 
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 public partial class MainViewModel : ObservableObject
 {
-    private readonly AppSettings appSettings;
+    private readonly IDownloader downloader;
 
     public MainViewModel()
-        : this(Configuration.Load<AppSettings>("appsettings.json"))
+        : this(AppSettings.Load("appsettings.json"))
     {
     }
 
     public MainViewModel(AppSettings appSettings)
+        : this(appSettings.DownloaderSettings)
     {
-        this.appSettings = appSettings;
-        this.appSettings.Validate();
+    }
 
-        this.Options = new ObservableCollection<DownloaderOption>(this.appSettings.DownloaderSettings.Options);
+    public MainViewModel(DownloaderSettings downloaderSettings)
+        : this(downloaderSettings, new Downloader(downloaderSettings))
+    {
+    }
+
+    public MainViewModel(DownloaderSettings downloaderSettings, IDownloader downloader)
+    {
+        this.downloader = downloader;
+
+        this.Options = new ObservableCollection<DownloaderOption>(downloaderSettings.Options);
         this.Urls.CollectionChanged += (sender, e) =>
         {
             this.AddCommand.NotifyCanExecuteChanged();
@@ -75,7 +82,7 @@ public partial class MainViewModel : ObservableObject
             return;
         }
 
-        this.StartDownload([this.Urls]);
+        this.StartDownload([this.Urls.ToArray()]);
     }
 
     [RelayCommand(CanExecute = nameof(CanDownload))]
@@ -86,7 +93,7 @@ public partial class MainViewModel : ObservableObject
             return;
         }
 
-        this.StartDownload(this.Urls.Select(url => (IEnumerable<string>)[url]));
+        this.StartDownload(this.Urls.Select(url => (IReadOnlyList<string>)[url]));
     }
 
     private bool CanDownload()
@@ -94,14 +101,11 @@ public partial class MainViewModel : ObservableObject
         return this.Urls.Any();
     }
 
-    private void StartDownload(IEnumerable<IEnumerable<string>> urlGroups)
+    private void StartDownload(IEnumerable<IReadOnlyList<string>> urlGroups)
     {
         foreach (var urlGroup in urlGroups)
         {
-            var downloaderCommand = this.appSettings.DownloaderSettings.CreateCommand(urlGroup);
-            var command = downloaderCommand + " & echo ExitCode: %ERRORLEVEL%" + " & pause";
-
-            Process.Start("cmd.exe", $"/c {command.DoubleQuoted()}");
+            this.downloader.Download(urlGroup);
         }
 
         if (!this.IsKeepSources)
