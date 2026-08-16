@@ -12,7 +12,7 @@ public class SetFocusAction : TriggerAction<DependencyObject>
         typeof(UIElement),
         typeof(SetFocusAction),
         new PropertyMetadata(null));
-        
+
     public UIElement TargetElement
     {
         get => (UIElement)this.GetValue(TargetElementProperty);
