@@ -1,10 +1,7 @@
-
 namespace StreamDownloaderTest.ViewModels;
 
 using NSubstitute;
-
 using Shouldly;
-
 using StreamDownloader.Configuration.Models;
 using StreamDownloader.Downloader;
 using StreamDownloader.ViewModels;
@@ -247,7 +244,8 @@ public class MainViewModelTest
         settings = new DownloaderSettings
         {
             FilePath = @".\yt-dlp.exe",
-            Options = [
+            Options =
+            [
                 new DownloaderOption { Enabled = false, Value = "--verbose" },
                 new DownloaderOption { Enabled = true, Value = "--wait-for-video 30" },
                 new DownloaderOption { Enabled = true, Value = @"--cookies ""cookies.txt""" },

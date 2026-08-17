@@ -1,5 +1,4 @@
-﻿
-namespace StreamDownloader;
+﻿namespace StreamDownloader;
 
 using System.Windows;
 using System.Windows.Threading;

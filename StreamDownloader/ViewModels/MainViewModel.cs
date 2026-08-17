@@ -1,32 +1,23 @@
-﻿
-namespace StreamDownloader.ViewModels;
-
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-
-using StreamDownloader.Configuration.Models;
-using StreamDownloader.Downloader;
+﻿namespace StreamDownloader.ViewModels;
 
 using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using StreamDownloader.Configuration.Models;
+using StreamDownloader.Downloader;
 
 public partial class MainViewModel : ObservableObject
 {
     private readonly IDownloader downloader;
 
     public MainViewModel()
-        : this(AppSettings.Load("appsettings.json"))
-    {
-    }
+        : this(AppSettings.Load("appsettings.json")) { }
 
     public MainViewModel(AppSettings appSettings)
-        : this(appSettings.DownloaderSettings)
-    {
-    }
+        : this(appSettings.DownloaderSettings) { }
 
     public MainViewModel(DownloaderSettings downloaderSettings)
-        : this(downloaderSettings, new Downloader(downloaderSettings))
-    {
-    }
+        : this(downloaderSettings, new Downloader(downloaderSettings)) { }
 
     public MainViewModel(DownloaderSettings downloaderSettings, IDownloader downloader)
     {

@@ -1,8 +1,6 @@
-﻿
-namespace StreamDownloaderTest.Configuration.Models;
+﻿namespace StreamDownloaderTest.Configuration.Models;
 
 using Shouldly;
-
 using StreamDownloader.Configuration.Models;
 
 [TestClass]

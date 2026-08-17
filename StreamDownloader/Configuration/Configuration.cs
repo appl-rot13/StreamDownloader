@@ -1,5 +1,4 @@
-﻿
-namespace StreamDownloader.Configuration;
+﻿namespace StreamDownloader.Configuration;
 
 using Microsoft.Extensions.Configuration;
 

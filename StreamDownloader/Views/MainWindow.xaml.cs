@@ -1,5 +1,4 @@
-﻿
-namespace StreamDownloader.Views;
+﻿namespace StreamDownloader.Views;
 
 public partial class MainWindow
 {

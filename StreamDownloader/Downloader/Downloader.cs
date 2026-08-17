@@ -1,10 +1,8 @@
-﻿
-namespace StreamDownloader.Downloader;
-
-using StreamDownloader.Configuration.Models;
-using StreamDownloader.Extensions;
+﻿namespace StreamDownloader.Downloader;
 
 using System.Diagnostics;
+using StreamDownloader.Configuration.Models;
+using StreamDownloader.Extensions;
 
 public class Downloader(DownloaderSettings settings) : IDownloader
 {

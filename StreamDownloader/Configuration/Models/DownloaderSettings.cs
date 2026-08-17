@@ -1,5 +1,4 @@
-﻿
-namespace StreamDownloader.Configuration.Models;
+﻿namespace StreamDownloader.Configuration.Models;
 
 using System.IO;
 

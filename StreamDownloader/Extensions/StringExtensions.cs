@@ -1,5 +1,4 @@
-﻿
-namespace StreamDownloader.Extensions;
+﻿namespace StreamDownloader.Extensions;
 
 using System.Diagnostics.CodeAnalysis;
 

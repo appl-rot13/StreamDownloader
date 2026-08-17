@@ -1,8 +1,6 @@
-
 namespace StreamDownloaderTest.Downloader;
 
 using Shouldly;
-
 using StreamDownloader.Configuration.Models;
 using StreamDownloader.Downloader;
 

@@ -1,5 +1,4 @@
-﻿
-namespace StreamDownloader.Downloader;
+﻿namespace StreamDownloader.Downloader;
 
 public interface IDownloader
 {

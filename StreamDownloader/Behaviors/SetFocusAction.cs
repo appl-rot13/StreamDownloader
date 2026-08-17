@@ -1,9 +1,7 @@
-﻿
-namespace StreamDownloader.Behaviors;
-
-using Microsoft.Xaml.Behaviors;
+﻿namespace StreamDownloader.Behaviors;
 
 using System.Windows;
+using Microsoft.Xaml.Behaviors;
 
 public class SetFocusAction : TriggerAction<DependencyObject>
 {
