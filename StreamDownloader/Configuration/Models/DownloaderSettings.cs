@@ -6,7 +6,7 @@ public class DownloaderSettings
 {
     public required string FilePath { get; init; }
 
-    public required DownloaderOption[] Options { get; init; } = [];
+    public DownloaderOption[] Options { get; init; } = [];
 
     public void Validate()
     {

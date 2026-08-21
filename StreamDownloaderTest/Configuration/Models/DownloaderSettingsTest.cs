@@ -40,7 +40,7 @@ public class DownloaderSettingsTest
 
     private static DownloaderSettings CreateDownloaderSettings(string filePath)
     {
-        return new DownloaderSettings { FilePath = filePath, Options = [] };
+        return new DownloaderSettings { FilePath = filePath };
     }
 
     private static string GetNonexistentTempFileName()
