@@ -171,9 +171,9 @@ distributed under licenses different than this software.
   END OF Sergio0694/ComputeSharp NOTICES AND INFORMATION
   ```
 
-## Microsoft.Xaml.Behaviors.Wpf 1.1.142
+## Microsoft.Xaml.Behaviors.Wpf 1.1.158
 - **Source** - https://github.com/Microsoft/XamlBehaviorsWpf
-- **Packages** - https://www.nuget.org/packages/Microsoft.Xaml.Behaviors.Wpf/1.1.142
+- **Packages** - https://www.nuget.org/packages/Microsoft.Xaml.Behaviors.Wpf/1.1.158
 
 - **License Notice**
   ```
