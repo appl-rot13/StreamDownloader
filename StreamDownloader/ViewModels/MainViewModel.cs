@@ -73,7 +73,7 @@ public partial class MainViewModel : ObservableObject
             return;
         }
 
-        this.StartDownload([this.Urls.ToArray()]);
+        this.StartDownload([[.. this.Urls]]);
     }
 
     [RelayCommand(CanExecute = nameof(CanDownload))]
