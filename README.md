@@ -2,6 +2,8 @@
 
 # Stream Downloader
 
+[![Test](../../actions/workflows/test.yml/badge.svg)](../../actions/workflows/test.yml)
+
 A tool for downloading streams.
 
 > [!WARNING]
