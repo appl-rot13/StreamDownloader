@@ -16,6 +16,6 @@ updates:
       interval: weekly
       day: friday
     groups:
-      microsoft-extensions-configuration:
+      dotnet-runtime:
         patterns:
           - "Microsoft.Extensions.Configuration.*"
