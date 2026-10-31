@@ -200,27 +200,27 @@ distributed under licenses different than this software.
   SOFTWARE.
   ```
 
-## .NET 10.0.13
+## .NET 10.0.14
 - **Source** - https://github.com/dotnet/dotnet
 - **Packages**
-  - **Microsoft.Extensions.Configuration 10.0.13** -  
-      https://www.nuget.org/packages/Microsoft.Extensions.Configuration/10.0.13
-  - **Microsoft.Extensions.Configuration.Abstractions 10.0.13** -  
-      https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Abstractions/10.0.13
-  - **Microsoft.Extensions.Configuration.Binder 10.0.13** -  
-      https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/10.0.13
-  - **Microsoft.Extensions.Configuration.FileExtensions 10.0.13** -  
-      https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/10.0.13
-  - **Microsoft.Extensions.Configuration.Json 10.0.13** -  
-      https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json/10.0.13
-  - **Microsoft.Extensions.FileProviders.Abstractions 10.0.13** -  
-      https://www.nuget.org/packages/Microsoft.Extensions.FileProviders.Abstractions/10.0.13
-  - **Microsoft.Extensions.FileProviders.Physical 10.0.13** -  
-      https://www.nuget.org/packages/Microsoft.Extensions.FileProviders.Physical/10.0.13
-  - **Microsoft.Extensions.FileSystemGlobbing 10.0.13** -  
-      https://www.nuget.org/packages/Microsoft.Extensions.FileSystemGlobbing/10.0.13
-  - **Microsoft.Extensions.Primitives 10.0.13** -  
-      https://www.nuget.org/packages/Microsoft.Extensions.Primitives/10.0.13
+  - **Microsoft.Extensions.Configuration 10.0.14** -  
+      https://www.nuget.org/packages/Microsoft.Extensions.Configuration/10.0.14
+  - **Microsoft.Extensions.Configuration.Abstractions 10.0.14** -  
+      https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Abstractions/10.0.14
+  - **Microsoft.Extensions.Configuration.Binder 10.0.14** -  
+      https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/10.0.14
+  - **Microsoft.Extensions.Configuration.FileExtensions 10.0.14** -  
+      https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/10.0.14
+  - **Microsoft.Extensions.Configuration.Json 10.0.14** -  
+      https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json/10.0.14
+  - **Microsoft.Extensions.FileProviders.Abstractions 10.0.14** -  
+      https://www.nuget.org/packages/Microsoft.Extensions.FileProviders.Abstractions/10.0.14
+  - **Microsoft.Extensions.FileProviders.Physical 10.0.14** -  
+      https://www.nuget.org/packages/Microsoft.Extensions.FileProviders.Physical/10.0.14
+  - **Microsoft.Extensions.FileSystemGlobbing 10.0.14** -  
+      https://www.nuget.org/packages/Microsoft.Extensions.FileSystemGlobbing/10.0.14
+  - **Microsoft.Extensions.Primitives 10.0.14** -  
+      https://www.nuget.org/packages/Microsoft.Extensions.Primitives/10.0.14
 
 - **License Notice**
   ```
