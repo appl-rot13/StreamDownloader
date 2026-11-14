@@ -19,3 +19,7 @@ updates:
       dotnet-runtime:
         patterns:
           - "Microsoft.Extensions.Configuration.*"
+    ignore:
+      - dependency-name: "Microsoft.Extensions.Configuration.*"
+        update-types:
+          - version-update:semver-major
